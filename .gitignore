@@ -1,23 +1,80 @@
-# Environment variables
-.env
-
-# Python cache
+# Python
 __pycache__/
 *.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
 
-# Virtual environments
-.venv/
+# Virtual Environment
 venv/
+.venv/
 env/
+ENV/
 
-# VS Code
+# Environment Variables (IMPORTANT - Contains API Keys!)
+.env
+*.env
+
+# IDE
 .vscode/
+.idea/
+*.swp
+*.swo
+*.code-workspace
 
-# macOS
+# OS
 .DS_Store
+Thumbs.db
 
-# Jupyter
-.ipynb_checkpoints/
+# User Uploads (May contain sensitive data)
+uploads/*.csv
+uploads/*.xlsx
+uploads/*.json
+!uploads/.gitkeep
+
+# Generated Reports
+reports/*.pdf
+reports/*.png
+!reports/.gitkeep
 
 # Logs
 *.log
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Temporary files
+*.tmp
+*.bak
+temp/
+tmp/
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+
+# pytest
+.pytest_cache/
+.coverage
+htmlcov/
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json

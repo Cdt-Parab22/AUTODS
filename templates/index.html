@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🤖 Autonomous AI Data Scientist</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Parallax Background -->
+    <div class="parallax-container">
+        <div class="parallax-layer layer-1"></div>
+        <div class="parallax-layer layer-2"></div>
+        <div class="parallax-layer layer-3"></div>
+        <div class="stars"></div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+        <!-- Hero Section -->
+        <section class="hero parallax-section" data-speed="0.5">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="badge">✨ Powered by LangGraph & Groq</div>
+                    <h1 class="title">
+                        <span class="gradient-text">Autonomous AI</span><br>
+                        <span class="title-line2">Data Scientist</span>
+                    </h1>
+                    <p class="subtitle">
+                        Upload your dataset and let AI agents analyze, preprocess, and recommend 
+                        the best machine learning approach — completely autonomous.
+                    </p>
+                    <div class="hero-buttons">
+                        <button class="btn btn-primary" onclick="scrollToUpload()">
+                            <span>Start Analysis</span>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M5 10H15M15 10L10 5M15 10L10 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <button class="btn btn-secondary" onclick="showFeatures()">
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="hero-visual">
+                    <div class="visual-card card-1">
+                        <div class="card-icon">📊</div>
+                        <div class="card-text">Dataset Loader</div>
+                    </div>
+                    <div class="visual-card card-2">
+                        <div class="card-icon">🔍</div>
+                        <div class="card-text">Analysis Agent</div>
+                    </div>
+                    <div class="visual-card card-3">
+                        <div class="card-icon">📝</div>
+                        <div class="card-text">Planner</div>
+                    </div>
+                    <div class="visual-card card-4">
+                        <div class="card-icon">⚙️</div>
+                        <div class="card-text">Executor</div>
+                    </div>
+                    <div class="visual-card card-5">
+                        <div class="card-icon">✅</div>
+                        <div class="card-text">Reviewer</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features parallax-section" data-speed="0.3" id="features">
+            <div class="container">
+                <h2 class="section-title">Multi-Agent Intelligence</h2>
+                <p class="section-subtitle">Specialized AI agents work together to deliver expert-level analysis</p>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🤖</div>
+                        <h3>Autonomous Workflow</h3>
+                        <p>AI agents collaborate without human intervention, from data loading to final recommendations</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">🧠</div>
+                        <h3>Smart Analysis</h3>
+                        <p>Detects missing values, outliers, correlations, and patterns automatically</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">🔄</div>
+                        <h3>Self-Correcting</h3>
+                        <p>Reviewer agent validates results and triggers re-execution if needed</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">📈</div>
+                        <h3>Expert Recommendations</h3>
+                        <p>Get preprocessing strategies, feature engineering tips, and modeling advice</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <h3>Lightning Fast</h3>
+                        <p>Powered by Groq's ultra-fast LPU inference for instant results</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">🎯</div>
+                        <h3>Production Ready</h3>
+                        <p>Built with LangGraph for reliable, scalable AI workflows</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Upload Section -->
+        <section class="upload-section parallax-section" data-speed="0.2" id="upload">
+            <div class="container">
+                <div class="upload-container">
+                    <h2 class="section-title">Start Your Analysis</h2>
+                    <p class="section-subtitle">Upload a CSV file and let the AI agents do the work</p>
+                    
+                    <div class="upload-box" id="uploadBox">
+                        <div class="upload-icon">📁</div>
+                        <h3>Drop your CSV file here</h3>
+                        <p>or click to browse</p>
+                        <input type="file" id="fileInput" accept=".csv" hidden>
+                        <button class="btn btn-primary" onclick="document.getElementById('fileInput').click()">
+                            Choose File
+                        </button>
+                    </div>
+                    
+                    <div class="task-input-container">
+                        <label for="taskInput">Analysis Task (Optional)</label>
+                        <textarea 
+                            id="taskInput" 
+                            rows="3" 
+                            placeholder="Analyze the dataset and recommend complete preprocessing and EDA."
+                        >Analyze the dataset and recommend complete preprocessing and EDA.</textarea>
+                    </div>
+                    
+                    <button class="btn btn-primary btn-large" id="analyzeBtn" disabled onclick="startAnalysis()">
+                        <span>Start Analysis</span>
+                        <div class="btn-loader" style="display: none;"></div>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Results Section -->
+        <section class="results-section" id="results" style="display: none;">
+            <div class="container">
+                <h2 class="section-title">Analysis Results</h2>
+                
+                <div class="results-container">
+                    <div class="status-indicator">
+                        <div class="status-icon" id="statusIcon">⏳</div>
+                        <div class="status-text" id="statusText">Processing...</div>
+                    </div>
+                    
+                    <div class="progress-steps" id="progressSteps">
+                        <div class="step" data-step="loader">
+                            <div class="step-icon">📊</div>
+                            <div class="step-label">Loading Dataset</div>
+                        </div>
+                        <div class="step" data-step="analysis">
+                            <div class="step-icon">🔍</div>
+                            <div class="step-label">Analysis</div>
+                        </div>
+                        <div class="step" data-step="planning">
+                            <div class="step-icon">📝</div>
+                            <div class="step-label">Planning</div>
+                        </div>
+                        <div class="step" data-step="execution">
+                            <div class="step-icon">⚙️</div>
+                            <div class="step-label">Execution</div>
+                        </div>
+                        <div class="step" data-step="review">
+                            <div class="step-icon">✅</div>
+                            <div class="step-label">Review</div>
+                        </div>
+                    </div>
+                    
+                    <div class="result-content" id="resultContent">
+                        <!-- Results will be populated here -->
+                    </div>
+                    
+                    <div class="download-buttons" id="downloadButtons" style="display: none;">
+                        <button class="btn btn-primary" onclick="downloadPDF()">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M10 12.5L6.25 8.75L7.5 7.5L9.375 9.375V3.125H10.625V9.375L12.5 7.5L13.75 8.75L10 12.5ZM4.375 16.875C3.85417 16.875 3.40885 16.6927 3.03906 16.3281C2.66927 15.9635 2.48438 15.5208 2.48438 15V12.5H3.73438V15C3.73438 15.1736 3.80035 15.3229 3.93229 15.4479C4.06424 15.5729 4.21354 15.6354 4.38021 15.6354H15.6198C15.7865 15.6354 15.9358 15.5729 16.0677 15.4479C16.1997 15.3229 16.2656 15.1736 16.2656 15V12.5H17.5156V15C17.5156 15.5208 17.3307 15.9635 16.9609 16.3281C16.5911 16.6927 16.1458 16.875 15.625 16.875H4.375Z" fill="currentColor"/>
+                            </svg>
+                            <span>Download PDF Report</span>
+                        </button>
+                        
+                        <button class="btn btn-secondary" onclick="downloadQR()">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M3.125 8.75V3.125H8.75V8.75H3.125ZM4.375 7.5H7.5V4.375H4.375V7.5ZM3.125 16.875V11.25H8.75V16.875H3.125ZM4.375 15.625H7.5V12.5H4.375V15.625ZM11.25 8.75V3.125H16.875V8.75H11.25ZM12.5 7.5H15.625V4.375H12.5V7.5ZM15.625 16.875V15.625H16.875V16.875H15.625ZM11.25 12.5V11.25H12.5V12.5H11.25ZM12.5 13.75V12.5H13.75V13.75H12.5ZM11.25 15V13.75H12.5V15H11.25ZM12.5 16.875V15H13.75V16.875H12.5ZM13.75 15V13.75H15V15H13.75ZM13.75 12.5V11.25H15V12.5H13.75ZM15 13.75V12.5H16.875V13.75H15Z" fill="currentColor"/>
+                            </svg>
+                            <span>Download QR Code</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-left">
+                        <h3>🤖 Autonomous AI Data Scientist</h3>
+                        <p>Built with LangGraph, LangChain, and Groq</p>
+                    </div>
+                    <div class="footer-right">
+                        <a href="https://github.com" target="_blank">GitHub</a>
+                        <a href="#" onclick="scrollToUpload()">Get Started</a>
+                        <a href="#features" onclick="showFeatures()">Features</a>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2026 Autonomous AI Data Scientist. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

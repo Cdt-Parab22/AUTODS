@@ -18,7 +18,7 @@ from tools.feature_types import get_feature_types
 load_dotenv()
 
 llm = ChatGroq(
-    model="llama-3.3-70b-versatile",
+    model="qwen/qwen3.8-27b",
     temperature=0
 )
 
