@@ -294,7 +294,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Pranav Parab**
 - Email: pranavparab.2004.22@gmail.com
-- GitHub: [@YOUR-GITHUB-USERNAME](https://github.com/YOUR-GITHUB-USERNAME)
+- GitHub: Cdt-Parab22
 
 ## 🎯 Roadmap
 
